@@ -1,0 +1,25 @@
+.comment {
+  margin-bottom: 40px;
+  font-size: 16px;
+
+  & .comment__header {
+    margin-bottom: 10px;
+
+    & a {
+      text-decoration: none;
+    }
+
+    & img {
+      width: 40px;
+      height: 40px;
+      vertical-align: middle;
+    }
+
+  }
+
+  & .comment__body {
+    line-height: 1.5em;
+    border: 1px solid #22313f;
+    padding: 10px;
+  }
+}
