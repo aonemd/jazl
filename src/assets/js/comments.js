@@ -13,7 +13,7 @@ const urlParams = new URLSearchParams(window.location.search);
 let github_code = urlParams.get('code');
 
 if (github_code) {
-  window.fetch("http://localhost:8001/access_tokens/fetch", {
+  window.fetch("https://jazl-server.herokuapp.com/access_tokens/fetch", {
     method: 'POST',
     mode: 'cors',
     headers: {
