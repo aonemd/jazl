@@ -23,3 +23,17 @@
     padding: 10px;
   }
 }
+
+#comments__editor {
+  display: block;
+  width: 100%;
+  min-height: 150px;
+  max-height: 500px;
+  resize: vertical;
+  padding: 15px;
+  margin-bottom: 5px;
+}
+
+#comments__add-button {
+  margin-bottom: 20px;
+}
