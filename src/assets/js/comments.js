@@ -1,5 +1,35 @@
 import commentStyles from '../css/comments.css'
 
+document.getElementById('login').onclick = function() {
+  window.location.href = `https://github.com/login/oauth/authorize?client_id=fe4931bc81e99ec2522f&redirect_uri=${window.location.href}&scope=public_repo`
+}
+
+const urlParams = new URLSearchParams(window.location.search);
+let github_code = urlParams.get('code');
+
+if (github_code) {
+  window.fetch("http://localhost:8001/access_tokens/fetch", {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ code: github_code })
+  }).then(response => {
+    return response.json();
+  }).then(data => {
+    localStorage.setItem('GH_ACCESS_TOKEN', data.access_token);
+
+    // redirect to the original page without any parameters
+    window.location.href =window.location.href.split('?')[0];
+  });
+}
+
+if (localStorage.getItem('GH_ACCESS_TOKEN')) {
+  document.getElementById('unlogged-in-message').style.display = 'none';
+}
+
 const moment = require('moment');
 const script = document.currentScript;
 
