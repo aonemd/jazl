@@ -35,24 +35,6 @@ if (localStorage.getItem('GH_ACCESS_TOKEN')) {
   document.getElementById('unlogged-in-message').style.display = 'none';
 }
 
-document.getElementById('comments__add-button').onclick = function() {
-  let github_access_token = localStorage.getItem('GH_ACCESS_TOKEN');
-  let comment_content     = document.getElementById('comments__editor').value;
-
-  window.fetch(`https://jazl-server.herokuapp.com/issues/${issueNumber}/comments`, {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${github_access_token}`
-    },
-    body: JSON.stringify({ content: comment_content })
-  }).then(res => {
-    document.getElementById('comments__editor').value = '';
-  });
-}
-
 export class Jazl {
   constructor(githubclientId, issueNumber) {
     this.clientId    = githubclientId;
@@ -60,6 +42,7 @@ export class Jazl {
     this.comments    = {};
 
     this.loadComments();
+    this.loadCreateComment();
   }
 
   get accessToken() {
@@ -125,7 +108,28 @@ export class Jazl {
     });
   }
 
-  createComment() {}
+  loadCreateComment() {
+    document.getElementById('comments__add-button').onclick = () => {
+      let content = document.getElementById('comments__editor').value;
+      this.createComment(content);
+    }
+  }
+
+  createComment(content) {
+    window.fetch(`https://jazl-server.herokuapp.com/issues/${this.issueNumber}/comments`, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.accessToken}`
+      },
+      body: JSON.stringify({ content: content })
+    }).then(res => {
+      // clear the editor
+      document.getElementById('comments__editor').value = '';
+    });
+  }
 }
 
 const jazl = new Jazl('123', issueNumber);
