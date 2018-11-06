@@ -55,7 +55,9 @@ export class Jazl {
 
   login() {}
 
-  logout() {}
+  logout() {
+    localStorage.clear();
+  }
 
   isLoggedIn() {
     return !!this.accessToken;
