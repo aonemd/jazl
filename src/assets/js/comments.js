@@ -1,39 +1,10 @@
 import commentStyles from '../css/comments.css'
+
 const moment = require('moment');
 const script = document.currentScript;
 
 let issueNumber  = script.getAttribute('issue');
-
-
-document.getElementById('login').onclick = function() {
-  window.location.href = `https://github.com/login/oauth/authorize?client_id=fe4931bc81e99ec2522f&redirect_uri=${window.location.href}&scope=public_repo`
-}
-
-const urlParams = new URLSearchParams(window.location.search);
-let github_code = urlParams.get('code');
-
-if (github_code) {
-  window.fetch("https://jazl-server.herokuapp.com/access_tokens/fetch", {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ code: github_code })
-  }).then(response => {
-    return response.json();
-  }).then(data => {
-    localStorage.setItem('GH_ACCESS_TOKEN', data.access_token);
-
-    // redirect to the original page without any parameters
-    window.location.href =window.location.href.split('?')[0];
-  });
-}
-
-if (localStorage.getItem('GH_ACCESS_TOKEN')) {
-  document.getElementById('unlogged-in-message').style.display = 'none';
-}
+let clientId     = 'fe4931bc81e99ec2522f'
 
 export class Jazl {
   constructor(githubclientId, issueNumber) {
@@ -43,6 +14,8 @@ export class Jazl {
 
     this.loadComments();
     this.loadCreateComment();
+    this.loadLoginButton();
+    this.handleLoginRedirect();
   }
 
   get accessToken() {
@@ -53,7 +26,46 @@ export class Jazl {
     localStorage.setItem('GH_ACCESS_TOKEN', token);
   }
 
-  login() {}
+  loadLoginButton() {
+    document.getElementById('login').onclick = () => {
+      this.login();
+    }
+  }
+
+  login() {
+    window.location.href =
+      `https://github.com/login/oauth/authorize?client_id=${this.clientId}&redirect_uri=${window.location.href}&scope=public_repo`;
+  }
+
+  handleLoginRedirect() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let github_code = urlParams.get('code');
+
+    if (github_code) {
+      window.fetch("https://jazl-server.herokuapp.com/access_tokens/fetch", {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ code: github_code })
+      }).then(response => {
+        return response.json();
+      }).then(data => {
+        localStorage.setItem('GH_ACCESS_TOKEN', data.access_token);
+
+        // redirect to the original page without any parameters
+        window.location.href =window.location.href.split('?')[0];
+      });
+    }
+
+    if (this.isLoggedIn()) {
+      document.getElementById('unlogged-in-message').style.display = 'none';
+    } else {
+      document.getElementById('logged-in-message').style.display = 'none';
+    }
+  }
 
   logout() {
     localStorage.clear();
@@ -134,4 +146,4 @@ export class Jazl {
   }
 }
 
-const jazl = new Jazl('123', issueNumber);
+const jazl = new Jazl(clientId, issueNumber);
