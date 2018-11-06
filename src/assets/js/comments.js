@@ -53,12 +53,44 @@ document.getElementById('comments__add-button').onclick = function() {
   });
 }
 
-window.fetch(`https://jazl-server.herokuapp.com/issues/${issueNumber}/comments`,
-  { Accept: 'application/json' }).then((response) => {
-    return response.json()
-  }).then((json) => {
-    let comments = json.repository.issue.comments.edges;
-    comments.reverse().forEach((comment) => {
+export class Jazl {
+  constructor(githubclientId, issueNumber) {
+    this.clientId    = githubclientId;
+    this.issueNumber = issueNumber;
+    this.comments    = {};
+
+    this.loadComments();
+  }
+
+  get accessToken() {
+    return localStorage.getItem('GH_ACCESS_TOKEN');
+  }
+
+  set accessToken(token) {
+    localStorage.setItem('GH_ACCESS_TOKEN', token);
+  }
+
+  login() {}
+
+  logout() {}
+
+  isLoggedIn() {
+    return !!this.accessToken;
+  }
+
+  loadComments() {
+    window.fetch(`https://jazl-server.herokuapp.com/issues/${this.issueNumber}/comments`,
+      { Accept: 'application/json' }
+    ).then(response => {
+      return response.json()
+    }).then(data => {
+      this.comments = data.repository.issue.comments.edges.reverse();
+      this.renderComments();
+    });
+  }
+
+  renderComments(commentsTagId = 'comments') {
+    this.comments.forEach(comment => {
       let commentNode = comment.node;
       let body        = commentNode.body;
       let createdAt   = moment(commentNode.createdAt).fromNow();
@@ -89,6 +121,11 @@ window.fetch(`https://jazl-server.herokuapp.com/issues/${issueNumber}/comments`,
 
       let tempDiv       = document.createElement("div")
       tempDiv.innerHTML = commentHTML
-      document.getElementById('comments').appendChild(tempDiv);
-    })
-  })
+      document.getElementById(commentsTagId).appendChild(tempDiv);
+    });
+  }
+
+  createComment() {}
+}
+
+const jazl = new Jazl('123', issueNumber);
