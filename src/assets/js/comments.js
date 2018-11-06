@@ -87,6 +87,9 @@ export class Jazl {
   }
 
   renderComments(commentsTagId = 'comments') {
+    // clear comments to prevent duplicate renders
+    document.getElementById(commentsTagId).innerHTML = '';
+
     this.comments.forEach(comment => {
       let commentNode = comment.node;
       let body        = commentNode.body;
@@ -142,6 +145,9 @@ export class Jazl {
     }).then(res => {
       // clear the editor
       document.getElementById('comments__editor').value = '';
+
+      // reload comments after submitting a new comment
+      this.loadComments();
     });
   }
 }
