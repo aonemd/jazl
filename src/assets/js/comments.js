@@ -68,7 +68,7 @@ export class Jazl {
   }
 
   logout() {
-    localStorage.clear();
+    localStorage.removeItem('GH_ACCESS_TOKEN');
   }
 
   isLoggedIn() {
