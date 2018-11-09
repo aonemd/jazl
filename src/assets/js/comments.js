@@ -86,9 +86,15 @@ export class Jazl {
     });
   }
 
+  _clearComments() {
+    [...document.getElementsByClassName('comment')].forEach(element => {
+      element.parenElement.remove();
+    });
+  }
+
   renderComments(commentsTagId = 'comments') {
     // clear comments to prevent duplicate renders
-    document.getElementById(commentsTagId).innerHTML = '';
+    this._clearComments();
 
     this.comments.forEach(comment => {
       let commentNode = comment.node;
