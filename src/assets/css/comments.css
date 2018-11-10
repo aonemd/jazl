@@ -1,12 +1,15 @@
 .jazl__comment {
   margin-bottom: 40px;
   font-size: 16px;
+  font-family: sans-serif;
 
   & .jazl__comment__header {
-    margin-bottom: 10px;
+    color: white;
+    background-color: #211f1f;
 
     & a {
       text-decoration: none;
+      color: white;
     }
 
     & img {
@@ -18,9 +21,12 @@
   }
 
   & .jazl__comment__body {
+    min-height: 80px;
     line-height: 1.5em;
-    border: 1px solid #22313f;
     padding: 10px;
+    border: 1px solid #211f1f;
+    color: black;
+    background-color: white;
   }
 }
 
