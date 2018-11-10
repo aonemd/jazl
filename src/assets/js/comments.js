@@ -169,7 +169,7 @@ export class Jazl {
             </a>
 
             <a href="${author.url}"><b>${author.username}</b></a>
-            commented ${createdAt}.
+            commented ${createdAt}
           </div>
 
           <div class="jazl__comment__body">
