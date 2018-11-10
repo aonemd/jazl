@@ -12,9 +12,8 @@ export class Jazl {
     this.issueNumber = issueNumber;
     this.comments    = {};
 
+    this.renderDOM();
     this.loadComments();
-    this.loadCreateComment();
-    this.loadLoginButton();
     this.handleLoginRedirect();
   }
 
@@ -26,9 +25,56 @@ export class Jazl {
     localStorage.setItem('GH_ACCESS_TOKEN', token);
   }
 
-  loadLoginButton() {
-    document.getElementById('login').onclick = () => {
-      this.login();
+  renderDOM() {
+    this.renderEditor();
+
+    if (this.isLoggedIn()) {
+      document.getElementById('jazl__logout-button').onclick = () => {
+        this.logout();
+      }
+
+      document.getElementById('comments__editor').disabled = false;
+    } else {
+      document.getElementById('jazl__login-button').onclick = () => {
+        this.login();
+      }
+
+      document.getElementById('comments__editor').disabled = true;
+    }
+  }
+
+  renderHeaderMessage() {
+    if (this.isLoggedIn()) {
+      return `<a href="javascript:void(0)" id="jazl__logout-button">Logout</a>`
+    } else {
+      return `Login via <a href="javascript:void(0)" id="jazl__login-button">GitHub</a>`
+    }
+  }
+
+  renderEditor() {
+    let editorHTML = `
+      <div id="logged-in-message">
+        <label id="jazl__editor-header" for="comments__editor">
+          ${this.renderHeaderMessage()}
+        </label>
+        <textarea
+                   id="comments__editor"
+                   name=""
+                   placeholder="Join the Discussion ..."
+                   onfocus="this.placeholder = ''"
+                   onblur="this.placeholder = 'Join the Discussion ...'"></textarea>
+
+        <input type="button" id="comments__add-button" value="Add">
+      </div>
+    `
+    let container       = document.createElement("div");
+    container.innerHTML = editorHTML;
+
+    document.getElementById('comments').appendChild(container);
+
+    document.getElementById('comments__add-button').onclick = () => {
+      let content = document.getElementById('comments__editor').value;
+      this.createComment(content);
     }
   }
 
@@ -58,12 +104,6 @@ export class Jazl {
         // redirect to the original page without any parameters
         window.location.href =window.location.href.split('?')[0];
       });
-    }
-
-    if (this.isLoggedIn()) {
-      document.getElementById('unlogged-in-message').style.display = 'none';
-    } else {
-      document.getElementById('logged-in-message').style.display = 'none';
     }
   }
 
@@ -129,13 +169,6 @@ export class Jazl {
       tempDiv.innerHTML = commentHTML
       document.getElementById(commentsTagId).appendChild(tempDiv);
     });
-  }
-
-  loadCreateComment() {
-    document.getElementById('comments__add-button').onclick = () => {
-      let content = document.getElementById('comments__editor').value;
-      this.createComment(content);
-    }
   }
 
   createComment(content) {

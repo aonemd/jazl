@@ -34,6 +34,14 @@
   margin-bottom: 5px;
 }
 
+#jazl__editor-header {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  color: white !important;
+  background-color: black;
+}
+
 #comments__add-button {
   margin-bottom: 20px;
 }
