@@ -3,8 +3,10 @@ const path = require('path');
 module.exports = {
   entry: path.resolve(__dirname, 'src/jazl.js'),
   output: {
-    path: path.resolve(__dirname, 'dist/'),
-    filename: 'jazl.min.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'jazl.min.js',
+    libraryTarget: 'var',
+    library: 'Jazl',
   },
   module: {
     rules: [
