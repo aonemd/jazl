@@ -3,10 +3,11 @@ import commentStyles from './jazl.css'
 const moment = require('moment');
 
 export default class Jazl {
-  constructor(githubClientId, issueIdTagId) {
-    this.clientId = githubClientId;
-    this.issueId  = document.getElementById(issueIdTagId).value;
-    this.comments = {};
+  constructor(githubClientId, jazlServerUrl, issueIdTagId) {
+    this.clientId      = githubClientId;
+    this.jazlServerUrl = jazlServerUrl;
+    this.issueId       = document.getElementById(issueIdTagId).value;
+    this.comments      = {};
 
     this.renderDOM();
     this.loadComments();
@@ -84,7 +85,7 @@ export default class Jazl {
     let github_code = urlParams.get('code');
 
     if (github_code) {
-      window.fetch("https://jazl-server.herokuapp.com/access_tokens/fetch", {
+      window.fetch(`${this.jazlServerUrl}/access_tokens/fetch`, {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -114,7 +115,7 @@ export default class Jazl {
   }
 
   createComment(content) {
-    window.fetch(`https://jazl-server.herokuapp.com/issues/${this.issueId}/comments`, {
+    window.fetch(`${this.jazlServerUrl}/issues/${this.issueId}/comments`, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -133,7 +134,7 @@ export default class Jazl {
   }
 
   loadComments() {
-    window.fetch(`https://jazl-server.herokuapp.com/issues/${this.issueId}/comments`,
+    window.fetch(`${this.jazlServerUrl}/issues/${this.issueId}/comments`,
       { Accept: 'application/json' }
     ).then(response => {
       return response.json()
