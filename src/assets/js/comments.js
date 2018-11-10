@@ -128,7 +128,7 @@ export class Jazl {
 
   _clearComments() {
     [...document.getElementsByClassName('comment')].forEach(element => {
-      element.parenElement.remove();
+      element.parentElement.remove();
     });
   }
 
