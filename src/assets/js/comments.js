@@ -168,7 +168,7 @@ export class Jazl {
               <img src="${author.avatar}" alt="" width="40" height="40">
             </a>
 
-            <a href="${author.url}">${author.username}</a>
+            <a href="${author.url}"><b>${author.username}</b></a>
             commented ${createdAt}.
           </div>
 
