@@ -1,4 +1,4 @@
-import commentStyles from '../css/comments.css'
+import commentStyles from 'jazl.css'
 
 const moment = require('moment');
 
@@ -188,5 +188,3 @@ export class Jazl {
     });
   }
 }
-
-const jazl = new Jazl('fe4931bc81e99ec2522f', 'issueId');
