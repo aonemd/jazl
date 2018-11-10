@@ -117,6 +117,25 @@ export class Jazl {
     return !!this.accessToken;
   }
 
+  createComment(content) {
+    window.fetch(`https://jazl-server.herokuapp.com/issues/${this.issueNumber}/comments`, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.accessToken}`
+      },
+      body: JSON.stringify({ content: content })
+    }).then(res => {
+      // clear the editor
+      document.getElementById('jazl__editor').value = '';
+
+      // reload comments after submitting a new comment
+      this.loadComments();
+    });
+  }
+
   loadComments() {
     window.fetch(`https://jazl-server.herokuapp.com/issues/${this.issueNumber}/comments`,
       { Accept: 'application/json' }
@@ -125,12 +144,6 @@ export class Jazl {
     }).then(data => {
       this.comments = data.repository.issue.comments.edges.reverse();
       this.renderComments();
-    });
-  }
-
-  _clearComments() {
-    [...document.getElementsByClassName('jazl__comment')].forEach(element => {
-      element.parentElement.remove();
     });
   }
 
@@ -173,22 +186,9 @@ export class Jazl {
     });
   }
 
-  createComment(content) {
-    window.fetch(`https://jazl-server.herokuapp.com/issues/${this.issueNumber}/comments`, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.accessToken}`
-      },
-      body: JSON.stringify({ content: content })
-    }).then(res => {
-      // clear the editor
-      document.getElementById('jazl__editor').value = '';
-
-      // reload comments after submitting a new comment
-      this.loadComments();
+  _clearComments() {
+    [...document.getElementsByClassName('jazl__comment')].forEach(element => {
+      element.parentElement.remove();
     });
   }
 }
