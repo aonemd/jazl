@@ -1,16 +1,12 @@
 import commentStyles from '../css/comments.css'
 
 const moment = require('moment');
-const script = document.currentScript;
-
-let issueNumber  = script.getAttribute('issue');
-let clientId     = 'fe4931bc81e99ec2522f'
 
 export class Jazl {
-  constructor(githubclientId, issueNumber) {
-    this.clientId    = githubclientId;
-    this.issueNumber = issueNumber;
-    this.comments    = {};
+  constructor(githubClientId, issueIdTagId) {
+    this.clientId = githubClientId;
+    this.issueId  = document.getElementById(issueIdTagId).value;
+    this.comments = {};
 
     this.renderDOM();
     this.loadComments();
@@ -118,7 +114,7 @@ export class Jazl {
   }
 
   createComment(content) {
-    window.fetch(`https://jazl-server.herokuapp.com/issues/${this.issueNumber}/comments`, {
+    window.fetch(`https://jazl-server.herokuapp.com/issues/${this.issueId}/comments`, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -137,7 +133,7 @@ export class Jazl {
   }
 
   loadComments() {
-    window.fetch(`https://jazl-server.herokuapp.com/issues/${this.issueNumber}/comments`,
+    window.fetch(`https://jazl-server.herokuapp.com/issues/${this.issueId}/comments`,
       { Accept: 'application/json' }
     ).then(response => {
       return response.json()
@@ -193,4 +189,4 @@ export class Jazl {
   }
 }
 
-const jazl = new Jazl(clientId, issueNumber);
+const jazl = new Jazl('fe4931bc81e99ec2522f', 'issueId');
