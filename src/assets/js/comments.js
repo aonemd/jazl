@@ -33,13 +33,13 @@ export class Jazl {
         this.logout();
       }
 
-      document.getElementById('comments__editor').disabled = false;
+      document.getElementById('jazl__editor').disabled = false;
     } else {
       document.getElementById('jazl__login-button').onclick = () => {
         this.login();
       }
 
-      document.getElementById('comments__editor').disabled = true;
+      document.getElementById('jazl__editor').disabled = true;
     }
   }
 
@@ -53,27 +53,25 @@ export class Jazl {
 
   renderEditor() {
     let editorHTML = `
-      <div id="logged-in-message">
-        <label id="jazl__editor-header" for="comments__editor">
-          ${this.renderHeaderMessage()}
-        </label>
-        <textarea
-                   id="comments__editor"
-                   name=""
-                   placeholder="Join the Discussion ..."
-                   onfocus="this.placeholder = ''"
-                   onblur="this.placeholder = 'Join the Discussion ...'"></textarea>
+      <label id="jazl__editor-header" for="jazl__editor">
+        ${this.renderHeaderMessage()}
+      </label>
+      <textarea
+                 id="jazl__editor"
+                 name=""
+                 placeholder="Join the Discussion ..."
+                 onfocus="this.placeholder = ''"
+                 onblur="this.placeholder = 'Join the Discussion ...'"></textarea>
 
-        <input type="button" id="comments__add-button" value="Add">
-      </div>
+      <input type="button" id="jazl__add-button" value="Add">
     `
     let container       = document.createElement("div");
     container.innerHTML = editorHTML;
 
     document.getElementById('comments').appendChild(container);
 
-    document.getElementById('comments__add-button').onclick = () => {
-      let content = document.getElementById('comments__editor').value;
+    document.getElementById('jazl__add-button').onclick = () => {
+      let content = document.getElementById('jazl__editor').value;
       this.createComment(content);
     }
   }
@@ -127,7 +125,7 @@ export class Jazl {
   }
 
   _clearComments() {
-    [...document.getElementsByClassName('comment')].forEach(element => {
+    [...document.getElementsByClassName('jazl__comment')].forEach(element => {
       element.parentElement.remove();
     });
   }
@@ -147,8 +145,8 @@ export class Jazl {
       }
 
       let commentHTML = `
-        <div class="comment">
-          <div class="comment__header">
+        <div class="jazl__comment">
+          <div class="jazl__comment__header">
             <a href="">
               <img src="${author.avatar}" alt="" width="40" height="40">
             </a>
@@ -157,7 +155,7 @@ export class Jazl {
             commented ${createdAt}.
           </div>
 
-          <div class="comment__body">
+          <div class="jazl__comment__body">
             <span>
               ${body}
             </span>
@@ -183,7 +181,7 @@ export class Jazl {
       body: JSON.stringify({ content: content })
     }).then(res => {
       // clear the editor
-      document.getElementById('comments__editor').value = '';
+      document.getElementById('jazl__editor').value = '';
 
       // reload comments after submitting a new comment
       this.loadComments();
