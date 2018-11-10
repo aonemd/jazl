@@ -32,16 +32,39 @@
   resize: vertical;
   padding: 15px;
   margin-bottom: 5px;
+
+  &*:disabled {
+    cursor: not-allowed;
+    background-color: white;
+  }
 }
 
 #jazl__editor-header {
   display: block;
   width: 100%;
-  padding: 5px;
+  padding-right: 10px;
   color: white !important;
-  background-color: black;
+  background-color: #211f1f;
+  font-size: 18px;
+
+  & a {
+    color: #45aaf2;
+    text-decoration: none;
+  }
 }
 
-#jazl__add-button {
-  margin-bottom: 20px;
+#jazl__comment-button {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  padding: 10px;
+  text-decoration: none;
+  font-family: sans-serif;
+  color: white;
+  background-color: #45aaf2;
+  border: none;
+  cursor: pointer;
+
+  &*:disabled {
+    cursor: not-allowed;
+  }
 }

@@ -34,14 +34,14 @@ export class Jazl {
       }
 
       document.getElementById('jazl__editor').disabled     = false;
-      document.getElementById('jazl__add-button').disabled = false;
+      document.getElementById('jazl__comment-button').disabled = false;
     } else {
       document.getElementById('jazl__login-button').onclick = () => {
         this.login();
       }
 
       document.getElementById('jazl__editor').disabled     = true;
-      document.getElementById('jazl__add-button').disabled = true;
+      document.getElementById('jazl__comment-button').disabled = true;
     }
   }
 
@@ -65,14 +65,14 @@ export class Jazl {
                  onfocus="this.placeholder = ''"
                  onblur="this.placeholder = 'Join the Discussion ...'"></textarea>
 
-      <input type="button" id="jazl__add-button" value="Add">
+      <input type="button" id="jazl__comment-button" value="Comment">
     `
     let container       = document.createElement("div");
     container.innerHTML = editorHTML;
 
     document.getElementById('comments').appendChild(container);
 
-    document.getElementById('jazl__add-button').onclick = () => {
+    document.getElementById('jazl__comment-button').onclick = () => {
       let content = document.getElementById('jazl__editor').value;
       this.createComment(content);
     }
