@@ -31,3 +31,7 @@ GitHub Issue Based Commenting System made simple
   <div id="comments"></div>
 ```
 - That's it!
+
+### License
+
+See [LICENSE](https://github.com/aonemd/jazl/blob/master/LICENSE).
