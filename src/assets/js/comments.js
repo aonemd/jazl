@@ -180,9 +180,9 @@ export class Jazl {
         </div>
       `
 
-      let tempDiv       = document.createElement("div")
-      tempDiv.innerHTML = commentHTML
-      document.getElementById(commentsTagId).appendChild(tempDiv);
+      let container       = document.createElement("div")
+      container.innerHTML = commentHTML
+      document.getElementById(commentsTagId).appendChild(container);
     });
   }
 
