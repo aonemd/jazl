@@ -2,7 +2,7 @@ import commentStyles from './jazl.css'
 
 const moment = require('moment');
 
-export class Jazl {
+export default class Jazl {
   constructor(githubClientId, issueIdTagId) {
     this.clientId = githubClientId;
     this.issueId  = document.getElementById(issueIdTagId).value;
