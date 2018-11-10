@@ -1,0 +1,29 @@
+{
+  "name": "jazl",
+  "version": "1.0.0",
+  "description": "GitHub Issue Based Comment System",
+  "main": "src/jazl.js",
+  "repository": "https://github.com/aonemd/jazl",
+  "author": "aonemd <aonemdsaleh@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "$(yarn bin)/webpack --mode development",
+    "build": "$(yarn bin)/webpack --mode production"
+  },
+  "dependencies": {
+    "moment": "^2.22.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "babel-loader": "^8.0.4",
+    "cssnano": "^4.1.7",
+    "css-loader": "^1.0.1",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
