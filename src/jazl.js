@@ -1,4 +1,4 @@
-import commentStyles from 'jazl.css'
+import commentStyles from './jazl.css'
 
 const moment = require('moment');
 
