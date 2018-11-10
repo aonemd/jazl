@@ -33,13 +33,15 @@ export class Jazl {
         this.logout();
       }
 
-      document.getElementById('jazl__editor').disabled = false;
+      document.getElementById('jazl__editor').disabled     = false;
+      document.getElementById('jazl__add-button').disabled = false;
     } else {
       document.getElementById('jazl__login-button').onclick = () => {
         this.login();
       }
 
-      document.getElementById('jazl__editor').disabled = true;
+      document.getElementById('jazl__editor').disabled     = true;
+      document.getElementById('jazl__add-button').disabled = true;
     }
   }
 
