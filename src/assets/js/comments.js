@@ -109,6 +109,8 @@ export class Jazl {
 
   logout() {
     localStorage.removeItem('GH_ACCESS_TOKEN');
+
+    document.location.reload();
   }
 
   isLoggedIn() {
