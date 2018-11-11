@@ -17,7 +17,9 @@ GitHub Issue Based Commenting System made simple
   $ yarn add jazl
 ```
 
-- ```javascript
+- Initialize `Jazl` in your script
+
+```javascript
     import Jazl from 'jazl';
 
     new Jazl('github ouath app client id',
@@ -27,7 +29,7 @@ GitHub Issue Based Commenting System made simple
 - Add a comments tag and issueId tag to your markup
 
 ```html
-  <div id="issueId">11</div>
+  <input type="hidden" id="issueId" value="11">
   <div id="comments"></div>
 ```
 - That's it!
