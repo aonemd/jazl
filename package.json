@@ -1,6 +1,6 @@
 {
   "name": "jazl",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "GitHub Issue Based Comment System",
   "main": "src/jazl.js",
   "repository": "https://github.com/aonemd/jazl",

@@ -139,7 +139,7 @@ export default class Jazl {
     ).then(response => {
       return response.json()
     }).then(data => {
-      this.comments = data.repository.issue.comments.edges.reverse();
+      this.comments = data.repository.issue.comments.edges;
       this.renderComments();
     });
   }
