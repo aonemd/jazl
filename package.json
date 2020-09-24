@@ -22,6 +22,6 @@
   },
   "scripts": {
     "serve": "$(yarn bin)/webpack --mode development --watch",
-    "build": "$(yarn bin)/webpack"
+    "build": "$(yarn bin)/webpack --mode production"
   }
 }
