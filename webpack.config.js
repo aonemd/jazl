@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/jazl.js'),
+  entry: path.resolve(__dirname, 'src', 'index.ts'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'jazl.min.js',
@@ -11,19 +11,24 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        test: /\.ts$/,
+        loader: 'ts-loader',
       },
       {
         test: /\.css$/,
         use: [
-          { loader: 'css-loader', options: { importLoaders: 1 } },
-          'postcss-loader'
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 1 }
+          },
+          {
+            loader: 'postcss-loader',
+          },
         ]
-      }
+      },
     ]
-  }
+  },
+  resolve: {
+    extensions: ['.ts', '.js', '.json'],
+  },
 };

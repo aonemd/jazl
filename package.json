@@ -1,29 +1,26 @@
 {
   "name": "jazl",
-  "version": "1.0.2",
-  "description": "GitHub Issue Based Comment System",
-  "main": "src/jazl.js",
-  "repository": "https://github.com/aonemd/jazl",
-  "author": "aonemd <aonemdsaleh@gmail.com>",
+  "version": "2.0.0",
+  "description": "GitHub Issue Based Commenting System",
+  "main": "dist/index.js",
+  "repository": "git@github.com:aonemd/jazl.git",
+  "author": "Ahmed Saleh",
   "license": "MIT",
   "private": false,
-  "scripts": {
-    "dev": "$(yarn bin)/webpack --mode development",
-    "build": "$(yarn bin)/webpack --mode production"
-  },
-  "dependencies": {
-    "moment": "^2.22.2"
-  },
   "devDependencies": {
-    "@babel/core": "^7.1.5",
-    "@babel/preset-env": "^7.1.5",
-    "babel-loader": "^8.0.4",
-    "cssnano": "^4.1.7",
-    "css-loader": "^1.0.1",
-    "postcss-cssnext": "^3.1.0",
+    "css-loader": "^4.3.0",
+    "postcss": "^8.0.9",
     "postcss-import": "^12.0.1",
-    "postcss-loader": "^3.0.0",
-    "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "postcss-loader": "^4.0.2",
+    "postcss-preset-env": "^6.7.0",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "scripts": {
+    "serve": "$(yarn bin)/webpack --mode development --watch",
+    "build": "$(yarn bin)/webpack"
   }
 }
