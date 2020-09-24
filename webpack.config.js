@@ -1,4 +1,5 @@
-const path = require('path');
+const path                 = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.ts'),
@@ -8,6 +9,11 @@ module.exports = {
     libraryTarget: 'var',
     library: 'Jazl',
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css"
+    })
+  ],
   module: {
     rules: [
       {
@@ -17,6 +23,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: { importLoaders: 1 }
