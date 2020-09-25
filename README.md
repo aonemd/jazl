@@ -5,7 +5,7 @@ GitHub Issue Based Commenting System made simple
 
 ### Features
 
-- Built on top of a modern stack: Webpack 4, Babel 7, and PostCSS
+- Built on top of a modern stack: Webpack 4, TypeScript, and PostCSS
 - Simple and small code base
 - More secure as it leaves handling the secret key of GitHub oauth app to the server side
 
@@ -22,9 +22,11 @@ GitHub Issue Based Commenting System made simple
 ```javascript
     import Jazl from 'jazl';
 
-    new Jazl('github ouath app client id',
-            'the url to the jazl server you deployed',
-            'the id of a hidden tag that contains the issue id/number, e.g., issueId');
+    new Jazl(
+      'github ouath app client id',
+      'the url to the jazl server you deployed',
+      'the id of a hidden tag that contains the issue id/number, e.g., issueId'
+    ).render();
   ```
 - Add a comments tag and issueId tag to your markup
 
