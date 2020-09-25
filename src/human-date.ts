@@ -19,9 +19,9 @@ export default class HumanDate {
 
   ago(): string {
     let seconds  = Math.floor((Date.now() - this.date.getTime()) / 1000);
-    let interval = this.intervals.find(i => i.seconds < seconds) || this.intervals[-1];
+    let interval = this.intervals.find(i => i.seconds <= seconds) || { label: 'just now', seconds: 1 };
     let count    = Math.floor(seconds / interval.seconds);
 
-    return `${count} ${interval.label}${count !== 1 ? 's' : ''} ago`;
+    return `${count >= 1 ? count : '' } ${interval.label}${count !== 1 ? 's' : ''} ago`;
   }
 }
