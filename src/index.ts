@@ -33,7 +33,7 @@ export default class Jazl {
       <textarea
                  id="jazl__editor"
                  name=""
-                 placeholder="Join the Discussion..."
+                 placeholder="Join the discussion..."
                  onfocus="this.placeholder = ''"
                  onblur="this.placeholder = 'Join the Discussion ...'"></textarea>
 
