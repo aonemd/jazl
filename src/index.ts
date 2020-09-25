@@ -40,6 +40,7 @@ export default class Jazl {
       <input type="button" id="jazl__comment-button" value="Comment">
     `;
     let container: HTMLElement = document.createElement("div");
+    container.setAttribute('id', 'jazl__editor-container');
     container.innerHTML = editorHTML;
 
     (<HTMLElement>document.getElementById('comments')).appendChild(container);
@@ -130,3 +131,9 @@ export default class Jazl {
     })
   }
 }
+
+new Jazl(
+  'fe4931bc81e99ec2522f',
+  'https://jazl-server.herokuapp.com',
+  'issueId'
+).render();

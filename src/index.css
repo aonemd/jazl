@@ -34,6 +34,10 @@
   }
 }
 
+#jazl__editor-container {
+  margin-bottom: 50px;
+}
+
 #jazl__editor {
   display: block;
   width: 100%;
@@ -67,7 +71,6 @@
 
 #jazl__comment-button {
   margin-top: 10px;
-  margin-bottom: 50px;
   padding: 10px;
   text-decoration: none;
   font-family: sans-serif;
