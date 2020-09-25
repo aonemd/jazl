@@ -7,7 +7,7 @@
   border: 1px solid #343434;
   background-color: white;
 
-  & .jazl__comment__header {
+  & .jazl__comment-header {
     color: black;
 
     & a {
@@ -23,7 +23,7 @@
     }
   }
 
-  & .jazl__comment__body {
+  & .jazl__comment-body {
     min-height: 50px;
     line-height: 1.5em;
     padding: 10px;
@@ -43,53 +43,53 @@
   margin-bottom: 50px;
   background-color: white;
   padding: 10px;
-}
 
-#jazl__editor-header {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  text-align: right;
-  padding-right: 10px;
-  font-size: 18px;
-  color: black;
-
-  & a {
+  & #jazl__editor-header {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 18px;
     color: black;
-    font-weight: bold;
+
+    & a {
+      color: black;
+      font-weight: bold;
+    }
   }
-}
 
-#jazl__editor {
-  display: block;
-  width: 100%;
-  min-height: 150px;
-  max-height: 500px;
-  resize: vertical;
-  padding: 15px;
-  margin-bottom: 5px;
-  box-sizing: border-box;
+  & #jazl__editor {
+    display: block;
+    width: 100%;
+    min-height: 150px;
+    max-height: 500px;
+    resize: vertical;
+    padding: 15px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
 
-  &*:disabled {
-    cursor: not-allowed;
-    background-color: white;
+    &*:disabled {
+      cursor: not-allowed;
+      background-color: white;
+    }
   }
-}
 
-#jazl__comment-button {
-  margin-top: 10px;
-  padding: 10px;
-  float: right;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-size: 18px;
-  text-transform: uppercase;
-  color: white;
-  background-color: #211f1f;
-  border: none;
-  cursor: pointer;
+  & #jazl__comment-button {
+    margin-top: 10px;
+    padding: 10px;
+    float: right;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: white;
+    background-color: #211f1f;
+    border: none;
+    cursor: pointer;
 
-  &*:disabled {
-    cursor: not-allowed;
+    &*:disabled {
+      cursor: not-allowed;
+    }
   }
 }

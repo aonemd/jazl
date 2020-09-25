@@ -106,7 +106,7 @@ export default class Jazl {
 
         let commentHTML: string = `
         <div class="jazl__comment">
-          <div class="jazl__comment__header">
+          <div class="jazl__comment-header">
             <a href="${author.url}">
               <img src="${author.avatar}" alt="" width="40" height="40">
             </a>
@@ -117,7 +117,7 @@ export default class Jazl {
             commented ${createdAt}
           </div>
 
-          <div class="jazl__comment__body">
+          <div class="jazl__comment-body">
             <span>
               ${body}
             </span>
