@@ -1,32 +1,31 @@
 .jazl__comment {
   margin-bottom: 40px;
+  padding: 10px;
   font-size: 16px;
   font-family: sans-serif;
+  border: 1px solid #211f1f;
 
   & .jazl__comment__header {
-    color: white;
-    background-color: #211f1f;
-
     & a {
       text-decoration: none;
-      color: white;
+      color: black;
     }
 
     & img {
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
       vertical-align: middle;
     }
-
   }
 
   & .jazl__comment__body {
-    min-height: 80px;
+    min-height: 50px;
     line-height: 1.5em;
     padding: 10px;
-    border: 1px solid #211f1f;
     color: black;
     background-color: white;
+    margin-top: 10px;
 
     & img {
       max-width: 100%;
