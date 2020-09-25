@@ -5,6 +5,8 @@ import { GitHubCommentNode } from './types';
 import GitHubLoginService from './github-login.service';
 import CommentDataService from './comment-data.service';
 
+import snarkdown from 'snarkdown';
+
 export default class Jazl {
   ghLoginService: GitHubLoginService;
   commentDataService: CommentDataService;
@@ -93,8 +95,8 @@ export default class Jazl {
 
       comments.forEach((comment: {node: GitHubCommentNode}) => {
         let commentNode: GitHubCommentNode = comment.node;
-        let body: string        = commentNode.body;
-        let createdAt: string   = new HumanDate(commentNode.createdAt).ago();
+        let body: string = snarkdown(commentNode.body);
+        let createdAt: string = new HumanDate(commentNode.createdAt).ago();
         let author = {
           username: commentNode.author.login,
           avatar:   commentNode.author.avatarUrl,

@@ -4,7 +4,9 @@
   "description": "GitHub Issue Based Commenting System",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": "git@github.com:aonemd/jazl.git",
   "author": "Ahmed Saleh",
   "license": "MIT",
@@ -25,5 +27,8 @@
   "scripts": {
     "serve": "$(yarn bin)/webpack --mode development --watch",
     "build": "$(yarn bin)/webpack --mode production"
+  },
+  "dependencies": {
+    "snarkdown": "^2.0.0"
   }
 }
