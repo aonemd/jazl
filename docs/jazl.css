@@ -1,0 +1,97 @@
+.jazl__comment {
+  margin-bottom: 40px;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  font-family: sans-serif;
+  border: 1px solid #ececec;
+  background-color: white
+}
+
+.jazl__comment .jazl__comment-header {
+    color: black
+  }
+
+.jazl__comment .jazl__comment-header a {
+      text-decoration: none;
+      color: black;
+    }
+
+.jazl__comment .jazl__comment-header img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+
+.jazl__comment .jazl__comment-body {
+    min-height: 50px;
+    line-height: 1.5em;
+    padding: 10px;
+    color: black;
+    background-color: white;
+    margin-top: 10px
+  }
+
+.jazl__comment .jazl__comment-body img {
+      max-width: 100%;
+    }
+
+#jazl__editor-container {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 50px;
+  background-color: white;
+  padding: 10px
+}
+
+#jazl__editor-container #jazl__editor-header {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 18px;
+    color: black
+  }
+
+#jazl__editor-container #jazl__editor-header a {
+      color: black;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+#jazl__editor-container #jazl__editor {
+    display: block;
+    width: 100%;
+    min-height: 150px;
+    max-height: 500px;
+    resize: vertical;
+    padding: 15px;
+    margin-bottom: 5px;
+    box-sizing: border-box
+  }
+
+#jazl__editor-container #jazl__editor*:disabled {
+      cursor: not-allowed;
+      background-color: white;
+    }
+
+#jazl__editor-container #jazl__comment-button {
+    margin-top: 10px;
+    padding: 10px;
+    float: right;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: white;
+    background-color: #211f1f;
+    border: none;
+    cursor: pointer
+  }
+
+#jazl__editor-container #jazl__comment-button*:disabled {
+      cursor: not-allowed;
+    }
+
