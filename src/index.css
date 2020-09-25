@@ -35,6 +35,8 @@
 }
 
 #jazl__editor-container {
+  display: inline-block;
+  width: 100%;
   margin-bottom: 50px;
 }
 
@@ -72,8 +74,11 @@
 #jazl__comment-button {
   margin-top: 10px;
   padding: 10px;
+  float: right;
   text-decoration: none;
   font-family: sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
   color: white;
   background-color: #45aaf2;
   border: none;
