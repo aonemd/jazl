@@ -27,7 +27,7 @@ export default class Jazl {
 
   private _renderEditor() {
     let editorHTML: string = `
-      <label id="jazl__editor-header" class="text-right" for="jazl__editor">
+      <label id="jazl__editor-header" for="jazl__editor">
         ${this._getCurrentLogInButton()}
       </label>
       <textarea

@@ -1,9 +1,11 @@
 .jazl__comment {
   margin-bottom: 40px;
   padding: 10px;
+  width: 100%;
   font-size: 16px;
   font-family: sans-serif;
-  border: 1px solid #211f1f;
+  border: 1px solid #343434;
+  background-color: white;
 
   & .jazl__comment__header {
     & a {
@@ -37,6 +39,22 @@
   display: inline-block;
   width: 100%;
   margin-bottom: 50px;
+  background-color: white;
+  padding: 10px;
+}
+
+#jazl__editor-header {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 18px;
+
+  & a {
+    color: black;
+    font-weight: bold;
+  }
 }
 
 #jazl__editor {
@@ -55,21 +73,6 @@
   }
 }
 
-#jazl__editor-header {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  padding-right: 10px;
-  color: white !important;
-  background-color: #211f1f;
-  font-size: 18px;
-
-  & a {
-    color: #45aaf2;
-    text-decoration: none;
-  }
-}
-
 #jazl__comment-button {
   margin-top: 10px;
   padding: 10px;
@@ -79,7 +82,7 @@
   font-size: 18px;
   text-transform: uppercase;
   color: white;
-  background-color: #45aaf2;
+  background-color: #211f1f;
   border: none;
   cursor: pointer;
 
