@@ -42,6 +42,7 @@
   resize: vertical;
   padding: 15px;
   margin-bottom: 5px;
+  box-sizing: border-box;
 
   &*:disabled {
     cursor: not-allowed;
@@ -51,6 +52,7 @@
 
 #jazl__editor-header {
   display: block;
+  box-sizing: border-box;
   width: 100%;
   padding-right: 10px;
   color: white !important;
