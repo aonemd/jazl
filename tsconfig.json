@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
+    "target": "ES2015",
+    "module": "ES2015",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
+    "strict": true,
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+    "declaration": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "./node_modules",
-    "dist"
+    "./dist"
   ],
   "include": [
     "./src/*.ts"

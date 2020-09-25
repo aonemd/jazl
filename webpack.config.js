@@ -5,13 +5,13 @@ module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.ts'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'jazl.min.js',
-    libraryTarget: 'var',
+    filename: 'index.js',
     library: 'Jazl',
+    libraryTarget: 'umd',
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css"
+      filename: "jazl.css"
     })
   ],
   module: {
