@@ -37,7 +37,7 @@ export default class Jazl {
                  onfocus="this.placeholder = ''"
                  onblur="this.placeholder = 'Join the Discussion ...'"></textarea>
 
-      <input type="button" id="jazl__comment-button" value="Comment">
+      <input type="button" id="jazl__comment-button" value="Submit">
     `;
     let container: HTMLElement = document.createElement("div");
     container.setAttribute('id', 'jazl__editor-container');
@@ -131,9 +131,3 @@ export default class Jazl {
     })
   }
 }
-
-new Jazl(
-  'fe4931bc81e99ec2522f',
-  'https://jazl-server.herokuapp.com',
-  'issueId'
-).render();
