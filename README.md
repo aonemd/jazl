@@ -14,7 +14,7 @@ GitHub Issue Based Commenting System made simple
 - Deploy [the server app](https://github.com/aonemd/jazl-server) on something like Heroku for example
 - To install the package, run
 ```sh
-  $ yarn add jazl
+$ yarn add jazl
 ```
 
 - Initialize `Jazl` in your script
@@ -34,8 +34,8 @@ new Jazl(
 - Add a comments tag and issueId tag to your markup
 
 ```html
-  <input type="hidden" id="issueId" value="11">
-  <div id="comments"></div>
+<input type="hidden" id="issueId" value="11">
+<div id="comments"></div>
 ```
 - That's it!
 
