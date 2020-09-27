@@ -20,13 +20,16 @@ GitHub Issue Based Commenting System made simple
 - Initialize `Jazl` in your script
 
 ```javascript
-    import Jazl from 'jazl';
+import Jazl from 'jazl';
 
-    new Jazl(
-      'github ouath app client id',
-      'the url to the jazl server you deployed',
-      'the id of a hidden tag that contains the issue id/number, e.g., issueId'
-    ).render();
+// import the style theme
+import 'jazl/dist/jazl.css';
+
+new Jazl(
+  'github ouath app client id',
+  'the url to the jazl server you deployed',
+  'the id of a hidden tag that contains the issue id/number, e.g., issueId'
+).render();
   ```
 - Add a comments tag and issueId tag to your markup
 
