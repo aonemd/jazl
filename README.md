@@ -6,8 +6,9 @@ GitHub Issue Based Commenting System made simple
 ### Features
 
 - Built on top of a modern stack: Webpack 4, TypeScript, and PostCSS
-- Simple and small code base
+- Supports Markdown
 - More secure as it leaves handling the secret key of GitHub oauth app to the server side
+- Simple and small code base
 
 ### Installation
 
