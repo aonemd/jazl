@@ -3,6 +3,8 @@ jazl
 
 GitHub issue based commenting system made simple
 
+[Demo](https://aonemd.github.io/jazl).
+
 ### Features
 
 - Built on top of a modern stack: Webpack 4, TypeScript, and PostCSS
