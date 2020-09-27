@@ -36,6 +36,25 @@ GitHub Issue Based Commenting System made simple
 ```
 - That's it!
 
+### Customization
+
+#### Style
+
+Customization of the style of each element is possible by overriding the CSS
+rules of the element. The current available rules are as follows:
+
+- `#jazl__editor-container`: the container of the comment editor
+- `#jazl__editor-container #jazl__editor-header`: the header of the comment editor. It has a single rule:
+  * `#jazl__editor-container #jazl__editor-header a`: the anchor in the header element
+- `#jazl__editor-container #jazl__editor`: the main comment editor
+- `#jazl__editor-container #jazl__comment-button`: the comment submit button
+- `.jazl__comment`: the container of a single comment
+- `.jazl__comment .jazl__comment-header`: the header of a comment. It contains:
+  * `.jazl__comment .jazl__comment-header a`: the link of the username
+  * `.jazl__comment .jazl__comment-header img`: the image of the user
+- `.jazl__comment .jazl__comment-body`: the actual comment body. It contains one rule:
+  * `.jazl__comment .jazl__comment-body img`: the element of the attached images
+
 ### License
 
 See [LICENSE](https://github.com/aonemd/jazl/blob/master/LICENSE).
