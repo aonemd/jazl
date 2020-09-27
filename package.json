@@ -1,13 +1,17 @@
 {
   "name": "jazl",
   "version": "2.0.3",
-  "description": "GitHub Issue Based Commenting System",
+  "description": "GitHub issue based commenting system made simple",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "repository": "git@github.com:aonemd/jazl.git",
+  "homepage": "https://aonemd.github.io/jazl",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aonemd/jazl.git"
+  },
   "author": "Ahmed Saleh",
   "license": "MIT",
   "private": false,

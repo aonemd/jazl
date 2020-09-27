@@ -1,7 +1,7 @@
 jazl
 ---
 
-GitHub Issue Based Commenting System made simple
+GitHub issue based commenting system made simple
 
 ### Features
 
